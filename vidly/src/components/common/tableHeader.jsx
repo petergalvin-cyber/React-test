@@ -13,13 +13,22 @@ raiseSort = path => {
         this.props.onSort(sortColumn)
 };
 
+renderSortIcon = column => {
+    if(!column.path) return null;
+    if (column.path !== this.props.sortColumn.path) return null
+    if (this.props.sortColumn.order === 'asc') return <i className="fa fa-sort-asc"></i>
+    return <i className="fa fa-sort-desc"></i>
+}
 
     render () {
         return ( 
         <thead>
-            <tr>
+            <tr className="clickable">
               {this.props.columns.map(column=> 
-                    <th key={column.path || column.key} onClick={()=>this.raiseSort(column.path)}>{column.label}</th>)}
+                    <th key={column.path || column.key} 
+                        onClick={()=>this.raiseSort(column.path)}>
+                        {column.label} {this.renderSortIcon(column)}
+                    </th>)}
             </tr>
         </thead>
 

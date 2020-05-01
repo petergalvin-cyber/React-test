@@ -42,10 +42,10 @@ handleSort = sortColumn => {
 }
 
 
-toggleLike = (movie) => {
+handleLike = (movie) => {
     const movies = [...this.state.movies]
     const index = movies.indexOf(movie)
-    //movies[index] = {...movie}
+    movies[index] = {...movie}
     movies[index].liked = !movies[index].liked
     this.setState({movies}) 
     //console.log('clicked',movie)
