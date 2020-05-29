@@ -1,8 +1,7 @@
 import React from 'react';
 //import {genres} from '../services/fakeGenreService'
 
-const ListGroup = (props) => {
-    const {items, textProperty, valueProperty, selectedItem, onItemSelect} = props;
+const ListGroup = ({items, textProperty, valueProperty, selectedItem, onItemSelect}) => {
     
     return (
         
